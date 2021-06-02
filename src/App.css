@@ -1,40 +1,6 @@
 .App {
+  padding: 1rem;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 button {
@@ -42,10 +8,27 @@ button {
 }
 
 .heading {
+  color: var(--main);
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-weight: 600;
   font-size: 2rem;
+}
+
+.search {
+  color: var(--main);
+  font-size: 1.2rem;
+  background-color: #0b132b;
+  height: 2rem;
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 0%;
+  border-color: var(--main);
+  outline: none;
+}
+
+.search::placeholder {
+  color: var(--main);
 }
 
 .search-container {
@@ -66,20 +49,98 @@ button {
   margin-right: 1rem;
 }
 
-.submit-btn {
+.btn {
+  padding: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: var(--main);
+  color: #0b132b;
+  border-radius: 0%;
+  border-color: #0b132b;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.btn-container {
-  display: flex;
-  flex-direction: column;
+.btn:hover {
+  font-weight: bold;
 }
 
-.results {
+.btn:focus {
+  border-style: dotted;
+  outline: none;
+}
+
+.btn:disabled {
+  background-color: var(--main-disabled);
+}
+
+.mr {
+  margin-right: 0.5rem;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 1rem;
 }
 
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.result-text {
+  color: var(--main);
+  font-size: 1.5rem;
+}
+
 .error {
+  font-weight: bold;
   color: red;
+}
+
+/* Spinner CSS from https://loading.io/css/ */
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--main) transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

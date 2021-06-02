@@ -76,30 +76,40 @@ const App = () => {
           />
         </div>
       </div>
-      <div className="btn-container">
-        <button
-          className="submit-btn"
-          disabled={isLoading || !termOne.trim() || !termTwo.trim()}
-          onClick={() => {
-            setHasResults((_) => false);
-            setFailure((_) => null);
-            search();
-          }}
-        >
-          FIGHT
-        </button>
-        <button
-          className="submit-btn"
-          onClick={() => {
-            setTermOne((_) => "");
-            setTermTwo((_) => "");
-            setHasResults((_) => false);
-            setFailure((_) => null);
-          }}
-        >
-          CLEAR
-        </button>
-      </div>
+
+      <button
+        className="btn mr"
+        disabled={isLoading || !termOne.trim() || !termTwo.trim()}
+        onClick={() => {
+          setHasResults((_) => false);
+          setFailure((_) => null);
+          search();
+        }}
+      >
+        FIGHT
+      </button>
+      <button
+        className="btn"
+        onClick={() => {
+          setTermOne((_) => "");
+          setTermTwo((_) => "");
+          setHasResults((_) => false);
+          setFailure((_) => null);
+        }}
+      >
+        CLEAR
+      </button>
+
+      {isLoading ? (
+        <div className="loading">
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      ) : null}
       {failure ? (
         <div className="results">
           <p className="error">{failure}</p>
@@ -109,10 +119,12 @@ const App = () => {
         <div className="results">
           {results !== null ? (
             <>
-              <p>
+              <p className="result-text">
+                {results["termOne"] > results["termTwo"] ? "👑" : "😭"}{" "}
                 {termOne} : {results["termOne"] ?? "-"}
               </p>
-              <p>
+              <p className="result-text">
+                {results["termTwo"] > results["termOne"] ? "👑" : "😭"}{" "}
                 {termTwo} : {results["termTwo"] ?? "-"}
               </p>
             </>

@@ -1,7 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap");
 
+:root {
+  --main: #c7ef00;
+  --main-disabled: #c7ef0044;
+  --secondary: #0b132b;
+}
+
 body {
   box-sizing: border-box;
+  background-color: var(--secondary);
   margin: 0;
   display: flex;
   justify-content: center;

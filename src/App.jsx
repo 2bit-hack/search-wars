@@ -139,10 +139,59 @@ const App = () => {
                 {results["termOne"] > results["termTwo"] ? "👑" : "😭"}{" "}
                 {termOne} : {results["termOne"] ?? "-"}
               </p>
+              <div className="graph-container">
+                <div
+                  className="graph"
+                  style={{
+                    marginTop: "5px",
+                    marginBottom: "5px",
+                    height: "20px",
+                    width:
+                      Math.floor(
+                        (results["termOne"] /
+                          (results["termOne"] + results["termTwo"])) *
+                          200
+                      ) + "px",
+                  }}
+                />
+                <p className="graph-text">
+                  {Math.floor(
+                    (results["termOne"] /
+                      (results["termOne"] + results["termTwo"])) *
+                      100
+                  )}
+                  %
+                </p>
+              </div>
               <p className="result-text">
                 {results["termTwo"] > results["termOne"] ? "👑" : "😭"}{" "}
                 {termTwo} : {results["termTwo"] ?? "-"}
               </p>
+              <div className="graph-container">
+                <div
+                  className="graph"
+                  style={{
+                    marginTop: "5px",
+                    marginBottom: "5px",
+                    height: "20px",
+                    width:
+                      Math.floor(
+                        (results["termTwo"] /
+                          (results["termOne"] + results["termTwo"])) *
+                          200
+                      ) + "px",
+                  }}
+                />
+                <p className="graph-text">
+                  {100 -
+                    Math.floor(
+                      (results["termOne"] /
+                        (results["termOne"] + results["termTwo"])) *
+                        100
+                    )}
+                  %
+                </p>
+              </div>
             </>
           ) : (
             <p className="error">

@@ -46,6 +46,15 @@ const App = () => {
       <header>
         <p className="heading">Search Wars!</p>
       </header>
+      <div className="desc desc-size">
+        <p className="desc-text">
+          Enter two search terms (&#8804; 50 characters) and find out which of
+          the two has more search results on{" "}
+          <a className="link" href="https://www.bing.com" target="_blank">
+            Bing
+          </a>
+        </p>
+      </div>
       <div className="search-container">
         <div className="search-row">
           <input
@@ -76,29 +85,36 @@ const App = () => {
           />
         </div>
       </div>
-
-      <button
-        className="btn mr"
-        disabled={isLoading || !termOne.trim() || !termTwo.trim()}
-        onClick={() => {
-          setHasResults((_) => false);
-          setFailure((_) => null);
-          search();
-        }}
-      >
-        FIGHT
-      </button>
-      <button
-        className="btn"
-        onClick={() => {
-          setTermOne((_) => "");
-          setTermTwo((_) => "");
-          setHasResults((_) => false);
-          setFailure((_) => null);
-        }}
-      >
-        CLEAR
-      </button>
+      <div>
+        <button
+          className="btn mr"
+          disabled={
+            isLoading ||
+            !termOne.trim() ||
+            !termTwo.trim() ||
+            termOne.trim().length > 50 ||
+            termTwo.trim().length > 50
+          }
+          onClick={() => {
+            setHasResults((_) => false);
+            setFailure((_) => null);
+            search();
+          }}
+        >
+          FIGHT
+        </button>
+        <button
+          className="btn"
+          onClick={() => {
+            setTermOne((_) => "");
+            setTermTwo((_) => "");
+            setHasResults((_) => false);
+            setFailure((_) => null);
+          }}
+        >
+          CLEAR
+        </button>
+      </div>
 
       {isLoading ? (
         <div className="loading">

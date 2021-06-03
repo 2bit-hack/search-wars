@@ -1,4 +1,8 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
   text-align: center;
 }
@@ -10,13 +14,39 @@ button {
 .heading {
   color: var(--main);
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
   font-size: 2rem;
 }
 
+.desc {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.desc-size {
+  max-width: 50%;
+}
+
+@media screen and (max-width: 480px) {
+  .desc-size {
+    max-width: 75%;
+  }
+}
+
+.desc-text {
+  color: var(--main);
+}
+
+.link {
+  font-size: bold;
+  color: var(--main);
+}
+
 .search {
   color: var(--main);
+  font-family: inherit;
   font-size: 1.2rem;
   background-color: #0b132b;
   height: 2rem;

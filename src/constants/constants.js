@@ -1,5 +1,5 @@
 const constants = {
-  baseUrl: "http://localhost:4000/",
+  baseUrl: "http://0.0.0.0:4000/",
 };
 
 export default constants;

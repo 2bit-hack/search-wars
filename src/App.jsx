@@ -136,7 +136,11 @@ const App = () => {
           {results !== null ? (
             <>
               <p className="result-text">
-                {results["termOne"] > results["termTwo"] ? "👑" : "😭"}{" "}
+                {results["termOne"] > results["termTwo"]
+                  ? "🥇"
+                  : results["termTwo"] > results["termOne"]
+                  ? "🥈"
+                  : "🏳️"}{" "}
                 {termOne} : {results["termOne"] ?? "-"}
               </p>
               <div className="graph-container">
@@ -164,7 +168,11 @@ const App = () => {
                 </p>
               </div>
               <p className="result-text">
-                {results["termTwo"] > results["termOne"] ? "👑" : "😭"}{" "}
+                {results["termTwo"] > results["termOne"]
+                  ? "🥇"
+                  : results["termOne"] > results["termTwo"]
+                  ? "🥈"
+                  : "🏳️"}{" "}
                 {termTwo} : {results["termTwo"] ?? "-"}
               </p>
               <div className="graph-container">
